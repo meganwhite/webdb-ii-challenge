@@ -19,12 +19,20 @@ router.get("/", async (req,res) => {
     catch(error) {
         res.status(500).status({error: "Server error; could not retrieve data"})
     }
+
 })
 
 // get entry by id
 router.get("/:id",validateID, (req,res) => {
     const {car} = req;
     res.status(200).json(car)
+})
+
+// create an entry
+router.post("/",validateInfo,async(req,res) =>{
+    const{body} = req;
+    const [id] = await db("cars").insert(body,"id");
+    res.status(200).json(id)
 })
 
 module.exports = router;
