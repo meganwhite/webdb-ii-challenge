@@ -4,7 +4,7 @@ exports.up = function(knex) {
         table.increments();
 
         table
-            .string("vinNumber")
+            .string("vinNumber",17)
             .unique()
             .notNullable()
 
