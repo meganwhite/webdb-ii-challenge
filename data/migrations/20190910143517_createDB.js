@@ -24,7 +24,7 @@ exports.up = function(knex) {
             .string("transmissionType", 128)
         
         table
-            .string(titleStatus, 128)
+            .string("titleStatus", 128)
             
     })
   
